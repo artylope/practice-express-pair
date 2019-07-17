@@ -28,6 +28,15 @@ app.get("/search", (request, response) => {
   response.send("You are searching for: " + request.query.q);
 });
 
+app.get("/add/*", function(req, response) {
+  let myParams = req.params[0].split("/")
+  const result = myParams.reduce(function(total, num) {
+    return total + parseInt(num)
+  }, 0);
+  response.send("The answer is  " + result)
+})
+
+// console.log('sjdehfj');
 
 const PORT = 4000;
 app.listen(PORT);
